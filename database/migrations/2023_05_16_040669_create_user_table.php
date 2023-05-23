@@ -11,11 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('administrator', function (Blueprint $table) {
-            $table->id('id_admin')->unique();
-            $table->unsignedBigInteger('id_user');
+        Schema::create('user', function (Blueprint $table) {
+            $table->id('id_user')->unique();
+            $table->string('username', 25);
+            $table->string('password', 8);
+            $table->string('nama', 100);
+            $table->boolean('is_admin');
 
-            $table->foreign('id_user')->references('id_user')->on('user');
             $table->timestamps();
         });
     }
@@ -25,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('administrator');
+        Schema::dropIfExists('user');
     }
 };

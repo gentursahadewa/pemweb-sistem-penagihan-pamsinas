@@ -18,6 +18,8 @@ return new class extends Migration
             $table->unsignedBigInteger('id_petugas');
             $table->unsignedBigInteger('id_kasir');
             $table->string('status', 15);
+            $table->double('meteran', 10, 2);
+            $table->string('bulan_penggunaan',6);
             $table->datetime('tanggal_penagihan');
             $table->double('jumlah_tagihan', 17, 2);
 

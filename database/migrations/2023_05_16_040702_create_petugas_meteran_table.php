@@ -16,7 +16,9 @@ return new class extends Migration
             $table->unsignedBigInteger('id_admin');
             $table->string('nama_petugas', 50);
             $table->string('area', 50);
+            $table->unsignedBigInteger('id_user');
 
+            $table->foreign('id_user')->references('id_user')->on('user');
             $table->foreign('id_admin')->references('id_admin')->on('administrator');
             $table->timestamps();
         });
