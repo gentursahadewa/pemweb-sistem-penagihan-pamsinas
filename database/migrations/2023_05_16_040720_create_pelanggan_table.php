@@ -18,9 +18,9 @@ return new class extends Migration
             $table->unsignedBigInteger('id_user');
             $table->unsignedBigInteger('id_petugas');
 
-            $table->string('email_pelanggan', 50);
-            $table->string('kelurahan', 50);
-            $table->string('kecamatan', 50);
+            $table->string('email_pelanggan', 50)->nullable(false);
+            $table->string('kelurahan', 50)->nullable(false);
+            $table->string('kecamatan', 50)->nullable(false);
 
             $table->foreign('id_user')->references('id_user')->on('user');
             $table->foreign('id_admin')->references('id_admin')->on('administrator');

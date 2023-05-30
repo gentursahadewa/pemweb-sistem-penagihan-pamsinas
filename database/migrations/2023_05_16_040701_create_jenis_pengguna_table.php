@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('jenis_pengguna', function (Blueprint $table) {
             $table->string('jenis_pengguna', 25)->primary();
             $table->unsignedBigInteger('id_admin');
-            $table->double('biaya_tarif', 17, 2);
+            $table->double('biaya_tarif', 17, 2)->nullable(false);
 
             $table->foreign('id_admin')->references('id_admin')->on('administrator');
             $table->timestamps();
