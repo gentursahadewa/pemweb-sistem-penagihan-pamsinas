@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('petugas_meteran', function (Blueprint $table) {
-            $table->id('id_petugas')->unique();
+        Schema::create('kasir', function (Blueprint $table) {
+            $table->id('id_kasir')->unique();
             $table->unsignedBigInteger('id_admin');
             $table->unsignedBigInteger('id_user');
-            $table->string('area', 50)->nullable(false);
 
-            $table->foreign('id_user')->references('id_user')->on('user');
+            $table->foreign('id_user')->references('id_user')->on('users');
             $table->foreign('id_admin')->references('id_admin')->on('administrator');
             $table->timestamps();
         });
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('petugas_meteran');
+        Schema::dropIfExists('kasir');
     }
 };
